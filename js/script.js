@@ -16,11 +16,7 @@ window.addEventListener("offline", function () {
     noInternet.style.display = 'block';
 });
 
-// -------------------------------------------------------------------------------------------------------------------
-// window.addEventListener('DOMContentLoaded', function () {
-//     drawData();
-//     search.focus();
-// });
+
 let allProducts = document.querySelector(".products")
 let AddToCartBtn = document.querySelector(".AddToCartBtn")
 let RemoveFromCartBtn = document.querySelector(".RemoveFromCartBtn")
@@ -101,7 +97,6 @@ let buyProudect = document.querySelector(".buyProudect");
 let totalPrice = document.querySelector(".total .totalPrice");
 let shoppingCartIcon = document.querySelector(".shoppingCart");
 let cartsProudect = document.querySelector(".cartsProudect");
-// let total = 0;
 let quantity = 1;
 let total = localStorage.getItem("totalPrice") ? +(localStorage.getItem("totalPrice")) : 0;
 
@@ -128,7 +123,6 @@ if (addItemStorage) {
 
 
 function pls(id, salePrice) {
-    // console.log(item);
 
     let quantityElement = document.getElementById(`quantity-${id}`);
     let quantity = +(quantityElement.innerHTML);
@@ -142,7 +136,6 @@ function pls(id, salePrice) {
     openCart();
 }
 function mins(id, salePrice) {
-    // console.log(item);
     let quantityElement = document.getElementById(`quantity-${id}`);
     let quantity = +(quantityElement.innerHTML);
 
@@ -180,7 +173,6 @@ function removeFromCart(id) {
         addItemStorage.forEach((item) => {
             drawBuyProudect(item);
             total += +item.salePrice * quantity;
-            // total += +item.salePrice * +(localStorage.getItem(`quantity-${item.id}`));
 
         });
 
@@ -241,12 +233,9 @@ function drawBuyProudect(item) {
 // --------------------------------------------------------------------------
 function checkFavorite(itemId) {
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    // console.log(favorites);
     let isFavorite = favorites.includes(itemId);
-    // console.log(isFavorite);
 
     return isFavorite;
-    // return false;
 }
 
 function addFav(id) {
@@ -272,18 +261,15 @@ function addToFavorites(itemId) {
     if (!favorites.includes(itemId)) {
         favorites.push(itemId);
     }
-    // console.log(favorites);
     localStorage.setItem('favorites', JSON.stringify(favorites));
 }
 
 function removeFromFavorites(itemId) {
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    // console.log(favorites);
     let index = favorites.indexOf(itemId);
     if (index !== -1) {
         favorites.splice(index, 1);
     }
-    // console.log(favorites);
     localStorage.setItem('favorites', JSON.stringify(favorites));
 }
 // -------------------------------------------------------------------
@@ -306,7 +292,6 @@ function openCart() {
 // search
 let search = document.getElementById('search');
 let searchOption = document.getElementById('searchOption');
-// let searchCategory = document.getElementById('title');
 let modeSearch = 'title';
 
 
